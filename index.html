@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+    <meta charset="utf-8">
+    <head>
+    </head>
+    <body style="background-image: url(https://i.pinimg.com/originals/20/50/3d/20503de4f96ace6f1ff06e61a4540c13.png);
+    background-size: cover;
+    background-repeat: no-repeat;">
+        <h1 style="position: fixed;
+        top: -17%;
+        left: 30%;
+         font-size:220px;
+         -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        opacity:0.3;
+        font-family: 'Trebuchet MS', Helvetica, sans-serif;
+        -webkit-text-stroke: 2px #ffffff;"><time id="currentTime"></time></h1>
+        <!-- -webkit-text-stroke: 18px #ffffff;  очень тонкий текст-->
+        
+        <h1 style="position: fixed;
+        top: 21%;
+        left: 36%;
+         font-size:80px;
+         -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        opacity:0.3;
+        font-family: 'Trebuchet MS', Helvetica, sans-serif;
+        -webkit-text-stroke: 2px #ffffff;"><time id="currentDate"></time></h1>
+        <!-- -webkit-text-stroke: 7px #ffffff;  очень тонкий текст-->
+
+        <script>
+            var D, M, Y;
+            var Hours, Min;
+            var timeElement = document.getElementById('currentTime');
+            var dateElement = document.getElementById('currentDate');
+
+            setInterval(function() {
+                var currentTime = new Date();
+
+                Hours = currentTime.getHours().toString();
+                Min = currentTime.getMinutes().toString();
+
+                D = currentTime.getDate().toString();
+                M = (currentTime.getMonth() + 1).toString();
+                Y = currentTime.getFullYear().toString();
+
+                if (Hours.length != 2) {Hours = '0' + Hours;}
+                if (Min.length != 2) {Min = '0' + Min;}
+
+                if (D.length != 2) {D = '0' + D;}
+                if (M.length != 2) {M = '0' + M;}
+
+
+                timeElement.textContent = Hours + ':' + Min;
+                dateElement.textContent = D + '.' + M + '.' + Y;
+
+            }, 1000);
+        </script>
+    </body>
+</html>
